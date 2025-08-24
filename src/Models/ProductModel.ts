@@ -31,14 +31,10 @@ const ProductSchema = mongoose.Schema(
       type: Array,
       required: false,
     },
-    deliveryStatus:{
+    ProductStatus:{
       type: String,
-      enum: ["Order Paid", "In Transit", "Delivered"],
-      default: "Order Paid",
-    },
-    rating:{
-      type: Number,
-      required: false,
+      enum: ["Awaiting Payment", "Order Paid", "In Transit", "Delivered"],
+      default: "Awaiting Payment",
     },
     // sizes:{
     //   type: String,

@@ -4,11 +4,7 @@ const { CreateProduct, GetAllProducts, GetSingleProduct, DeleteProduct, UpdatePr
 const upload = require("../../Middleware/Multer")
 
 
-router.post("/", 
-  upload.fields([
-    {name:"image",maxcount:1},
-  ]),
-  CreateProduct);
+router.post("/", CreateProduct);
 
 router.get("/", GetAllProducts);
 router.get("/:id", GetSingleProduct);
