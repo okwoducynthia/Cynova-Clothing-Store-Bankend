@@ -14,14 +14,14 @@ const CreateProduct = async(req:any, res:any)=>{
         message: "productName, Price, Category and Sizes are required"
       })
     }
-    if(images.lenght > 5 ) {
+    if(images.length > 5 ) {
       return res.status(402).json ({
         message:"Maximum file upload is 5"
       })
     }
     const productExist = await ProductModel.findOne({productName})
     if (productExist) {
-      res.status(401).json({
+      return res.status(401).json({
         message: "Product Name Already Exist"
       })
     }
@@ -92,7 +92,6 @@ const GetAllProducts = async (req: any, res: any) => {
   try {
     const result = await ProductModel.find()
       .sort({ createdAt: -1 })
-      .populate("assignedBy");
     res.status(200).json(result);
   } catch (error) {
     res.status(404).json({
