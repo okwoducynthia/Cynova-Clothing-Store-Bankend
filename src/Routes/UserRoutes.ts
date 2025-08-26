@@ -5,7 +5,7 @@ const { adminLogin, LoginUser, SignUpUser, GetAllUser, GetSingleUser, UpdateSing
 
 
 
-router.post("/", adminLogin)
+router.post("/admin", adminLogin)
 router.post("/login", LoginUser)
 router.post("/signup", SignUpUser)
 router.get("/", GetAllUser)
